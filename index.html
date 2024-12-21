@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .container{
+    height: 600px;
+    width: 500px;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 20px;
+    /* text-align: center; */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 60px;
+  }
+  .heading{
+    text-align: center;
+  }
+  .CashGiven{
+    padding: 10px;
+    font-size: 20px;
+    text-align: left;
+  }
+  .para{
+    color: rgb(86, 84, 81);
+  }
+  .box1{
+    padding: 7px;
+    width: 400px;
+    border-radius: 3px;
+   
+  }
+  .billamount{
+    padding: 10px;
+    font-size: 20px;
+    text-align: left;
+  }
+  .box2{
+    padding: 7px;
+    width: 400px;
+    border-radius: 3px;
+  }
+  .btnn{
+    height: 30px;
+    width: 420px;
+    margin: 10px;
+    background-color: rgb(43, 43, 93);
+    color: #fff;
+    font-size: large;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+.table{
+    /* border: 10px solid red; */
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid black;
+}
+.row{
+    padding: 10px;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="heading">
+        <h1>Pay Role Management</h1>
+        <p class="para">Enter the bill amount and the cash given by the customer and know the minimum number of notes to return</p>
+    </div>
+        <div class="billamount">
+            <label >Enter the bill amount</label> <br>
+             <input type="text" placeholder="Enter the amount" id="bill" class="box2">
+        </div>
+        <div class="CashGiven">
+            <label >Cash Given</label> <br>
+            <input type="text" placeholder="Enter the Cash" id="cash" class="box1">
+       </div>
+       <button class="btnn" onclick="calculateChange()"  id="btn">Check</button>
+       
+
+           <table class="table">
+            <h3 style="text-align: center;">Return Change</h3>
+                <tr class="row">
+                    <th class="row">No of Notes</th>    
+                </tr>
+                <tr>
+                    <th class="row">Notes</th>
+                    <td class="row">2000</td>
+                    <td class="row">500</td>
+                    <td class="row">100</td>
+                    <td class="row">20</td>
+                    <td class="row">10</td>
+                    <td class="row">5</td>
+                    <td class="row">1</td>
+                </tr>
+           </table>
+      
+    </div>
+</body>
+<script>  
+function calculateChange() {
+    const Bill = document.getElementById("bill").value;
+    const Cash = document.getElementById("cash").value;
+    const notes = [2000, 500, 100, 20, 10, 5, 1];
+
+    if (Bill > 0 && Cash >= Bill) {
+        let amountTobeReturn = Cash - Bill;
+        let result =`${amountTobeReturn}`;
+        alert(result);
+    } else if (Bill > Cash) {
+        alert(" cash given is less than the bill amount");
+    } else {
+        alert("enter valid values");
+    }
+}         
+</script>
+</html>
